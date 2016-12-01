@@ -1,0 +1,237 @@
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #2e2f2f;
+}
+
+.contain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95vmin;
+  height: 100vmin;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.toy {
+  position: relative;
+  top: 10%;
+  left: 20%;
+  width: 65%;
+  height: 75%;
+}
+
+.head {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  border-radius: 10%;
+  background-color: #fdffd8;
+}
+
+.toy-body {
+  position: relative;
+  top: 0;
+  left: 10%;
+  width: 50%;
+  height: 25%;
+  border: 10vmin solid #fffffd;
+  border-style: solid;
+  border-style: ridge;
+  border-radius: 10%;
+}
+
+.arm {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  border-radius: 50% 50% 0 0;
+}
+
+.left.arm {
+  top: 0;
+  left: -95%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: #fffffd;
+}
+
+.right.arm {
+  top: 10%;
+  right: -95%;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  background-color: #ababaa;
+}
+
+.arm:before {
+  position: absolute;
+  top: -100%;
+  left: 30%;
+  width: 50%;
+  height: 100%;
+  content: '';
+}
+
+.left.arm:before {
+  border-top: 1vmin solid #fffffd;
+  background-color: #fffffd;
+}
+
+.right.arm:before {
+  border-top: 1vmin solid #ababaa;
+  background-color: #ababaa;
+}
+
+.arm:after {
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  width: 75%;
+  height: 100%;
+  content: '';
+  border-radius: 200% 200% 0 0;
+  background-color: #2e2f2f;
+}
+
+.inner-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+}
+
+.power {
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  width: 12%;
+  height: 20%;
+  margin-right: 0;
+  padding: .5vmin;
+  cursor: pointer;
+  border: .5vmin solid #e8e8e6;
+  border-radius: 200%;
+  background-color: #fffffd;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, .5);
+}
+
+.power-font {
+  font-size: 4vmin;
+  position: absolute;
+  top: .5vmin;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: rgba(255, 95, 95, 1);
+}
+
+.power-input {
+  display: none;
+}
+
+.legs {
+  position: relative;
+  width: 100%;
+  height: 10%;
+}
+
+.leg {
+  position: absolute;
+  width: 35%;
+  height: 100%;
+  border: 3vmin solid #f3f3f3;
+  border-style: outset;
+  border-radius: 25%;
+  background-color: #f3f3f3;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.toy-shadow {
+  position: absolute;
+  z-index: -1;
+  top: -3vmin;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity 500ms ease;
+  transition: opacity 500ms ease;
+  -webkit-transform: perspective(1vmin) rotateX(-4deg);
+  transform: perspective(1vmin) rotateX(-4deg);
+  opacity: 0;
+  background-color: #e1ce7a;
+  box-shadow: 0 0 80px #e1ce7a;
+}
+
+.glow {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  opacity: .8;
+}
+
+#power:checked ~ div.toy-shadow {
+  opacity: .7;
+}
+
+#power:checked ~ .glow {
+  opacity: 1;
+  background-color: #fff9a5;
+  box-shadow: -1vmin -1vmin 25vmin 1vmin #fff9a5;
+}
+
+#power:checked ~ .toy-body > .inner-body > .power {
+  box-shadow: none;
+}
+
+#power:checked ~ .toy-body > .inner-body > .power > .power-font {
+  color: rgba(255, 95, 95, .5);
+}
+
+#power:checked ~ .toy-body > div.right.arm:before {
+  border-top: 1vmin solid #fffffd;
+  background-color: #fffffd;
+}
+
+#power:checked ~ .toy-body > div.right.arm {
+  background-color: #fffffd;
+}
+
+#power:checked ~ .toy-body {
+  border-style: solid;
+  border-color: #fffffd;
+  border-bottom-color: #e6e6e6;
+  background-color: white;
+}
+
+#power:checked ~ .toy-body > .inner-body {
+  background-color: white;
+  box-shadow: 0 0 1vmin 0 #ababaa inset;
+}
+
+#power:checked ~ .legs > .leg {
+  border-style: solid;
+  border-bottom-color: #e6e6e6;
+  background-color: #fffffd;
+}
+
+#power:checked ~ .legs > .leg.left {
+  border-left-color: white;
+}
+
+#power:checked ~ .legs > .leg.right {
+  border-right-color: white;
+}
+
+@-ms-viewport{
+  width: device-width;
+}
